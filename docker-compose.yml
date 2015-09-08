@@ -1,0 +1,13 @@
+jenkins:
+  build: .
+  dockerfile: Dockerfile
+  volumes:
+   - /export/data_01/user001/.jenkins:/var/lib/jenkins/.jenkins
+   - /export/data_01/svc_cbmicid/archive/jenkins:/backup
+  ports:
+   - 8080:8080/tcp
+   - 45640:45640/tcp
+  name: "jenkins"
+  env_file:
+   - env_vars
+  restart: "always"
